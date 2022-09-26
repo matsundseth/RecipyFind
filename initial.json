@@ -1,0 +1,949 @@
+[
+
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$YKHUsVjZl9ooi52oW1J1rr$bIO8Tk+sbMCDVTPUNPkAbvWzyZsvPndj8+4WZw1WvH4=",
+    "last_login": "2022-03-23T15:59:16.816Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-03-11T20:18:53.965Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$7aanGN1rxmjowreS12bUr8$KyQytsynjUD+qAiothTn5CbvmejslHv2UpOlf7c1fAc=",
+    "last_login": "2022-03-23T16:07:02.443Z",
+    "is_superuser": false,
+    "username": "Alice",
+    "first_name": "",
+    "last_name": "",
+    "email": "alice@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-01-06T14:05:33Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$7aanGN1rxmjowreS12bUr8$KyQytsynjUD+qAiothTn5CbvmejslHv2UpOlf7c1fAc=",
+    "last_login": "2022-03-23T16:00:41.691Z",
+    "is_superuser": false,
+    "username": "Bob",
+    "first_name": "",
+    "last_name": "",
+    "email": "bob@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-01-06T14:05:33Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "main.storingtype",
+  "pk": 8,
+  "fields": {
+    "storing_type": "pcs"
+  }
+},
+{
+  "model": "main.storingtype",
+  "pk": 9,
+  "fields": {
+    "storing_type": "gram"
+  }
+},
+{
+  "model": "main.storingtype",
+  "pk": 10,
+  "fields": {
+    "storing_type": "dl"
+  }
+},
+{
+  "model": "main.storingtype",
+  "pk": 11,
+  "fields": {
+    "storing_type": "liter(s)"
+  }
+},
+{
+  "model": "main.storingtype",
+  "pk": 12,
+  "fields": {
+    "storing_type": "pack(s)"
+  }
+},
+{
+  "model": "main.storingtype",
+  "pk": 13,
+  "fields": {
+    "storing_type": "ts"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 8,
+  "fields": {
+    "ingredient_name": "Burger patties",
+    "storing_type": 8
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 9,
+  "fields": {
+    "ingredient_name": "Salad",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 10,
+  "fields": {
+    "ingredient_name": "Burger buns",
+    "storing_type": 8
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 11,
+  "fields": {
+    "ingredient_name": "Pickles",
+    "storing_type": 8
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 12,
+  "fields": {
+    "ingredient_name": "Ketchup",
+    "storing_type": 13
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 13,
+  "fields": {
+    "ingredient_name": "Cheese",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 14,
+  "fields": {
+    "ingredient_name": "Salmon",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 15,
+  "fields": {
+    "ingredient_name": "Seaweed",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 16,
+  "fields": {
+    "ingredient_name": "Rice",
+    "storing_type": 10
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 17,
+  "fields": {
+    "ingredient_name": "Shrimp",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 18,
+  "fields": {
+    "ingredient_name": "Wasabi",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 19,
+  "fields": {
+    "ingredient_name": "Soy sauce",
+    "storing_type": 10
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 20,
+  "fields": {
+    "ingredient_name": "Ham",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 21,
+  "fields": {
+    "ingredient_name": "Bread",
+    "storing_type": 8
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 22,
+  "fields": {
+    "ingredient_name": "Tomato",
+    "storing_type": 8
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 23,
+  "fields": {
+    "ingredient_name": "Bacon",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 24,
+  "fields": {
+    "ingredient_name": "Sugar",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 25,
+  "fields": {
+    "ingredient_name": "Chocolate",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 26,
+  "fields": {
+    "ingredient_name": "Egg",
+    "storing_type": 8
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 27,
+  "fields": {
+    "ingredient_name": "Butter",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 28,
+  "fields": {
+    "ingredient_name": "Flour",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 29,
+  "fields": {
+    "ingredient_name": "Beef",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 30,
+  "fields": {
+    "ingredient_name": "BBQ Sauce",
+    "storing_type": 10
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 31,
+  "fields": {
+    "ingredient_name": "Strawberries",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 32,
+  "fields": {
+    "ingredient_name": "Banana",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 33,
+  "fields": {
+    "ingredient_name": "Blueberries",
+    "storing_type": 9
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "recipe_name": "Bill's Burger",
+    "description": "Thick or thin, made on the grill or stovetop, this is the best and easiest all-purpose recipe for perfect hamburger patties every time! These juicy, delicious homemade hamburgers are ready in less than 30 minutes and are a must-make for your next cookout.",
+    "steps": "First, set out a large mixing bowl and add in the ground beef, crushed crackers, egg, Worcestershire sauce, milk, and spices.\r\nUse your hands to thoroughly combine until the mixture is very smooth.\r\nNext, press the meat down in the bowl, into an even disk. Use a knife to cut and divide the hamburger patty mixture into 6 � 1/3 pound grill or skillet patties, or 12 thin griddle patties. Like so:\r\nSet out a baking sheet, lined with wax paper or foil, to hold the patties. One at a time, gather the patty mix and press firmly into patties of your desired thickness. You typically want hamburger patties to be slightly larger than the buns they�ll be served on since they�ll shrink a bit in the cooking process.\r\nPlace the formed patties on the baking sheet. With thick patties, press a dent in the center of each patty, so they don�t puff up while cooking.\r\nYou can stack the patties with sheets of wax paper between layers if needed.\r\nThen, preheat the grill or a skillet to medium heat, approximately 350-400 degrees F.\r\nI love using a cast-iron skillet for getting that drool-worthy caramelized sear on the burgers.",
+    "prep": 30,
+    "avatar": "download.jpg"
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "recipe_name": "Sushi",
+    "description": "Don�t get intimidated � rolling sushi is 100x easier than it looks! Your rolls might not come out 5-star restaurant worthy on the first try but it won�t be long before you�re creations are so pretty you�ll want to instagram them!",
+    "steps": "STEP 1 � JULIENNE YOUR VEGGIES:\r\nWhile the rice cooks + cools � prep your veggies! Slice vertically into matchsticks and set aside. Once the rice is done you�ll be ready to roll!\r\n\r\nSTEP 2 � WRAP IT UP:\r\nTo avoid messy clean-up and scrubbing, wrap your bamboo mat in plastic wrap.  Lay a sheet of nori on top and grab your rice!\r\n\r\nSTEP 3 � INSIDE-OUT OR OUTSIDE-IN:\r\nThe two most popular techniques are inside-out rolls with rice on the outside or rolls wrapped with nori on the outside and rice on the inside.",
+    "prep": 60,
+    "avatar": "sushi.jpg"
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "recipe_name": "Club Sandwich",
+    "description": "Layers of ham, bacon and turkey with juicy tomatoes, crisp lettuce and cheddar cheese create the perfect bite!\r\n\r\nWe love to enjoy this sandwich alongside some delicious baked french fries or even some crispy fried dill pickles on the side!",
+    "steps": "First Layer: Spread the mayo on one side of lightly toasted bread. Add turkey, tomato and cheese (be sure to put the tomatoes in the middle so the bread doesn�t get soggy).\r\n\r\nSecond Layer: Layer ham, bacon and lettuce.\r\n\r\nTop with the final slices of bread, secure with cute sandwich picks and cut into quarters.",
+    "prep": 20,
+    "avatar": "ClubSandwich.jpg"
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "recipe_name": "Chocolate Lava Cake",
+    "description": "You will fall in love with this Chocolate Lava Cake recipe with its rich molten chocolate center! Ready in less than 30 minutes, this decadent dessert is sure to impress and is perfect for any occasion. All you need are a handful of simple ingredients, and you�ll have this rich and fudgy chocolate treat in no time.",
+    "steps": "1. Combine the butter and chopped chocolate in a double boiler and melt over low heat, stirring until smooth. Alternatively, place the butter and chocolate in a microwave-safe bowl and microwave on high, stirring every 30-seconds until melted.\r\n\r\n2. In a large mixing bowl, combine the eggs, egg yolks, sugar, and salt. Beat on medium speed until thick and pale yellow.\r\n\r\n3. Add the chocolate mixture and flour into the egg mixture.\r\n\r\n4. Fold together the mixture until well combined.\r\n\r\n5. Transfer the batter into buttered and floured ramekins. Bake for 6 to 8 minutes or until the sides of the cakes are firm set, but the center is jiggly. Let the cakes cool in the ramekins for 1 minute.\r\n\r\n6. Place a small dessert plate over the top of each ramekin and carefully flip it over, inverting the chocolate lava cake onto the plate. Let stand for about 10 seconds, then remove the ramekin to unmold the cakes. Sift powdered sugar on top and garnish with berries, if desired. Serve immediately.",
+    "prep": 50,
+    "avatar": "ChocolateLavaCake.jpg"
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 5,
+  "fields": {
+    "user": 3,
+    "recipe_name": "Barbecued Beef",
+    "description": "This dish is zesty and yummy! It is very easy to make, as well as very deserving of 3 exclamation points!!! Spoon meat onto toasted sandwich buns, and top with additional barbecue sauce.",
+    "steps": "Step 1\r\nIn a large bowl, combine ketchup, brown sugar, red wine vinegar, Dijon-style mustard, Worcestershire sauce, and liquid smoke. Stir in salt, pepper, and garlic powder.\r\n\r\nStep 2\r\nPlace chuck roast in a slow cooker. Pour ketchup mixture over chuck roast. Cover, and cook on Low for 8 to 10 hours.\r\n\r\nStep 3\r\nRemove chuck roast from slow cooker, shred with a fork, and return to the slow cooker. Stir meat to evenly coat with sauce. Continue cooking approximately 1 hour.",
+    "prep": 600,
+    "avatar": "BQQBEEF.jpg"
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 6,
+  "fields": {
+    "user": 3,
+    "recipe_name": "Ultimate Healthy Breakfast Smoothie",
+    "description": "This healthy smoothie recipe is packed with protein, fiber, unsaturated fats, and essential vitamins and minerals. Follow our simple formula, memorize the ingredient amounts, then customize to your liking.",
+    "steps": "Place all ingredients in a blender; process until smooth.",
+    "prep": 10,
+    "avatar": "healthySmoothie.jpg"
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 7,
+  "fields": {
+    "user": 2,
+    "recipe_name": "The Best Cheesecake Recipe",
+    "description": "For a recipe with so few ingredients it took a lot longer than you might think to develop the perfect version. Here is the ultimate best tasty cheesecake recipe.",
+    "steps": "Preheat oven to 325F (160C).\r\nPrepare Graham Cracker crust first by combining graham cracker crumbs, sugar, and brown sugar, and stirring well. Add melted butter and use a fork to combine ingredients well.\r\nPour crumbs into a 9� Springform pan and press firmly into the bottom and up the sides of your pan. Set aside.",
+    "prep": 60,
+    "avatar": "cheesecake.jpg"
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 1,
+  "fields": {
+    "ingredient": 8,
+    "recipe": 1,
+    "amount": 2
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 2,
+  "fields": {
+    "ingredient": 9,
+    "recipe": 1,
+    "amount": 35
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 3,
+  "fields": {
+    "ingredient": 10,
+    "recipe": 1,
+    "amount": 1
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 4,
+  "fields": {
+    "ingredient": 11,
+    "recipe": 1,
+    "amount": 3
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 5,
+  "fields": {
+    "ingredient": 12,
+    "recipe": 1,
+    "amount": 1
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 6,
+  "fields": {
+    "ingredient": 13,
+    "recipe": 1,
+    "amount": 35
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 7,
+  "fields": {
+    "ingredient": 14,
+    "recipe": 2,
+    "amount": 300
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 8,
+  "fields": {
+    "ingredient": 15,
+    "recipe": 2,
+    "amount": 50
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 9,
+  "fields": {
+    "ingredient": 16,
+    "recipe": 2,
+    "amount": 2
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 10,
+  "fields": {
+    "ingredient": 17,
+    "recipe": 2,
+    "amount": 200
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 11,
+  "fields": {
+    "ingredient": 19,
+    "recipe": 2,
+    "amount": 1
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 12,
+  "fields": {
+    "ingredient": 18,
+    "recipe": 2,
+    "amount": 15
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 13,
+  "fields": {
+    "ingredient": 9,
+    "recipe": 3,
+    "amount": 20
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 14,
+  "fields": {
+    "ingredient": 20,
+    "recipe": 3,
+    "amount": 30
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 15,
+  "fields": {
+    "ingredient": 21,
+    "recipe": 3,
+    "amount": 2
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 16,
+  "fields": {
+    "ingredient": 13,
+    "recipe": 3,
+    "amount": 25
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 17,
+  "fields": {
+    "ingredient": 22,
+    "recipe": 3,
+    "amount": 1
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 18,
+  "fields": {
+    "ingredient": 23,
+    "recipe": 3,
+    "amount": 30
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 19,
+  "fields": {
+    "ingredient": 24,
+    "recipe": 4,
+    "amount": 100
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 20,
+  "fields": {
+    "ingredient": 25,
+    "recipe": 4,
+    "amount": 300
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 21,
+  "fields": {
+    "ingredient": 26,
+    "recipe": 4,
+    "amount": 2
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 22,
+  "fields": {
+    "ingredient": 27,
+    "recipe": 4,
+    "amount": 100
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 23,
+  "fields": {
+    "ingredient": 28,
+    "recipe": 4,
+    "amount": 50
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 24,
+  "fields": {
+    "ingredient": 29,
+    "recipe": 5,
+    "amount": 400
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 25,
+  "fields": {
+    "ingredient": 9,
+    "recipe": 5,
+    "amount": 0
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 26,
+  "fields": {
+    "ingredient": 13,
+    "recipe": 5,
+    "amount": 100
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 27,
+  "fields": {
+    "ingredient": 30,
+    "recipe": 5,
+    "amount": 1
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 28,
+  "fields": {
+    "ingredient": 31,
+    "recipe": 6,
+    "amount": 100
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 29,
+  "fields": {
+    "ingredient": 32,
+    "recipe": 6,
+    "amount": 50
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 30,
+  "fields": {
+    "ingredient": 33,
+    "recipe": 6,
+    "amount": 50
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 31,
+  "fields": {
+    "ingredient": 13,
+    "recipe": 7,
+    "amount": 50
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 32,
+  "fields": {
+    "ingredient": 26,
+    "recipe": 7,
+    "amount": 2
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 33,
+  "fields": {
+    "ingredient": 27,
+    "recipe": 7,
+    "amount": 30
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 34,
+  "fields": {
+    "ingredient": 33,
+    "recipe": 7,
+    "amount": 50
+  }
+},
+{
+  "model": "main.amount",
+  "pk": 35,
+  "fields": {
+    "ingredient": 24,
+    "recipe": 7,
+    "amount": 35
+  }
+},
+{
+  "model": "main.theme",
+  "pk": 1,
+  "fields": {
+    "theme": true,
+    "user": 1
+  }
+},
+{
+  "model": "main.theme",
+  "pk": 2,
+  "fields": {
+    "theme": true,
+    "user": 2
+  }
+},
+{
+  "model": "main.theme",
+  "pk": 3,
+  "fields": {
+    "theme": true,
+    "user": 3
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 1,
+  "fields": {
+    "rating": 5,
+    "recipe": 1,
+    "user": 1
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 2,
+  "fields": {
+    "rating": 4,
+    "recipe": 2,
+    "user": 2
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 3,
+  "fields": {
+    "rating": 2,
+    "recipe": 3,
+    "user": 2
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 4,
+  "fields": {
+    "rating": 5,
+    "recipe": 1,
+    "user": 2
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 5,
+  "fields": {
+    "rating": 5,
+    "recipe": 4,
+    "user": 2
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 6,
+  "fields": {
+    "rating": 5,
+    "recipe": 4,
+    "user": 3
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 7,
+  "fields": {
+    "rating": 3,
+    "recipe": 3,
+    "user": 3
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 8,
+  "fields": {
+    "rating": 5,
+    "recipe": 2,
+    "user": 3
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 9,
+  "fields": {
+    "rating": 2,
+    "recipe": 1,
+    "user": 3
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 10,
+  "fields": {
+    "rating": 2,
+    "recipe": 5,
+    "user": 3
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 11,
+  "fields": {
+    "rating": 5,
+    "recipe": 5,
+    "user": 1
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 12,
+  "fields": {
+    "rating": 4,
+    "recipe": 3,
+    "user": 1
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 13,
+  "fields": {
+    "rating": 4,
+    "recipe": 2,
+    "user": 1
+  }
+},
+{
+  "model": "main.rating",
+  "pk": 14,
+  "fields": {
+    "rating": 5,
+    "recipe": 4,
+    "user": 1
+  }
+},
+{
+  "model": "main.shoppinglist",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "shoppinglist": []
+  }
+},
+{
+  "model": "main.shoppinglist",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "shoppinglist": []
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 1,
+  "fields": {
+    "name": "Lunch"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 2,
+  "fields": {
+    "name": "Dinner"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 3,
+  "fields": {
+    "name": "Desert"
+  }
+},
+{
+  "model": "categories.contains",
+  "pk": 1,
+  "fields": {
+    "category": 2,
+    "recipe": 1
+  }
+},
+{
+  "model": "categories.contains",
+  "pk": 2,
+  "fields": {
+    "category": 2,
+    "recipe": 2
+  }
+},
+{
+  "model": "categories.contains",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "recipe": 3
+  }
+},
+{
+  "model": "categories.contains",
+  "pk": 4,
+  "fields": {
+    "category": 3,
+    "recipe": 4
+  }
+},
+{
+  "model": "categories.contains",
+  "pk": 5,
+  "fields": {
+    "category": 2,
+    "recipe": 5
+  }
+},
+{
+  "model": "categories.contains",
+  "pk": 6,
+  "fields": {
+    "category": 1,
+    "recipe": 6
+  }
+},
+{
+  "model": "categories.contains",
+  "pk": 7,
+  "fields": {
+    "category": 3,
+    "recipe": 7
+  }
+}
+]

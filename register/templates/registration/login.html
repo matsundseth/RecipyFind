@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block header %}
+{% endblock header %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1>Welcome to RecipyFind!</h1>
+<br></br>
+<form method="post" class="from-group">
+    {% csrf_token %}
+    {{form|crispy}}
+    <p>If you don't have an account, register <a href="/register">here</p>
+    <button type="submit" class="btn btn-success">Login</button>
+</form>
+{% endblock %}
