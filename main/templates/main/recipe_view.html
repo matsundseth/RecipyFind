@@ -1,0 +1,201 @@
+{% extends 'main/base.html' %}
+
+<!DOCTYPE html>
+{% block header %}
+  <li class="nav-item active">
+    <a class="nav-link" href="/home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/createRecipe">Create receipe</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/mypage">My page</a>
+  </li>
+{% endblock  %}
+{% block content%}
+    {% if user.is_authenticated %}  
+
+        <!-- Receipe Slider -->
+
+            <div class="row">
+                <div class="col-12">
+                        <img src="{{recipe.avatar.url}}" alt="" style="max-width: 100%; width: 600px; height: auto; padding: 10px 0px 0px 15px"/>
+                </div>
+                <div style ="padding: 30px 30px 0px 30px">
+                    <h6>Created by: {{recipe.user}}</h6>
+                </div>
+            </div>
+
+        <!-- Receipe Content Area -->
+        <div class="receipe-content-area">
+            <div class="container" style="float: left">
+
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <div class="receipe-headline my-5">
+                                <h2>{{recipe.recipe_name}}</h2>
+                                <div class="receipe-duration">
+                                    <h6>Time: {{recipe.prep}} min</h6>
+                                </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <!-- Single Preparation Step -->
+                        <div class="single-preparation-step d-flex">
+                            <h4>Description</h4>
+                            <br/>
+                        </div>
+                        <p>{{recipe.description}}</p>
+                    </div>
+                
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <!-- Single Preparation Step -->
+                        <div class="single-preparation-step d-flex">
+                            <h4>Steps</h4>
+                            <br/>
+                        </div>
+                        <p>{{recipe.steps}}</p>
+                    </div>
+                    
+
+                    
+
+
+
+
+
+
+                    <!-- Ingredients -->
+                    <div class="col-12 col-lg-4">
+                        
+
+
+                        <style>
+                            .rating {
+                            width: 180px;
+                            }
+                            .rating__star {
+                            cursor: pointer;
+                            color: #dabd18b2;
+                            }
+                            .rating__star:hover {
+                                text-shadow: 0 0 11px rgba(255, 252, 66, 0.658);
+                            }
+                        </style>
+
+                        <!-- Add icon library -->
+                        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css" integrity="sha384-eLT4eRYPHTmTsFGFAzjcCWX+wHfUInVWNm9YnwpiatljsZOwXtwV2Hh6sHM6zZD9" crossorigin="anonymous">
+                        <div class="rating">
+                            <i class="rating__star far fa-star"></i>
+                            <i class="rating__star far fa-star"></i>
+                            <i class="rating__star far fa-star"></i>
+                            <i class="rating__star far fa-star"></i>
+                            <i class="rating__star far fa-star"></i>
+                            <p id = "avg_score" style="font-size: 13px;"></p>
+                        </div>
+
+                        <form method="post" action = "{% url 'recipeView' recipe.id %}" id="ratingform" hidden>
+                            {% csrf_token %} 
+                            <input type="number" name="rating" min="1" max="5" id="ratingInput">
+                        </form>
+
+
+                        <script>
+                            const stars = [...document.getElementsByClassName("rating__star")];
+                            var ratingdata = JSON.parse("{{ratingArray|escapejs}}");
+                            sumRating = 0;
+                            let r;
+                            for (r = 0; r < ratingdata.length; r++) {
+                                sumRating += ratingdata[r]
+                            } 
+                            meanRating = sumRating / ratingdata.length
+
+                            document.getElementById("avg_score").innerHTML = "Avg: "+ String(meanRating).slice(0,3)+"/5 with "+ String(ratingdata.length) + " ratings";
+                            
+
+                            function post_rating(rating) {
+                                document.getElementById("ratingInput").value = Number(rating);
+                                let form = document.getElementById("ratingform");
+                                form.submit();
+                            }
+
+                            function loadRating(){
+                                const starClassActive = "rating__star fas fa-star";
+                                const starClassInactive = "rating__star far fa-star";
+                                const starsLength = stars.length;
+                                let i;
+                                stars.map((star) => {
+                                    i = stars.indexOf(star);
+
+                                    if (i < meanRating){
+                                        star.className=starClassActive;
+                                    }else{
+                                        star.className=starClassInactive;
+                                    }
+                                });
+                            }
+
+                            function executeRating(stars) {
+                                let i;
+                                stars.map((star) => {
+                                    star.onclick = () => {
+                                        rating = stars.indexOf(star);
+                                        post_rating(rating+1)
+                                    };
+                                });
+                            }
+                            loadRating();
+                            executeRating(stars);
+                        </script>
+
+
+
+
+
+
+
+
+                        <div class="ingredients">
+                            <h4>Ingredients</h4>
+                           
+                            {% for amount in amounts %}
+                            <div>
+                                {{amount.ingredient.ingredient_name}}: {{amount.amount}} {{amount.ingredient.storing_type}}
+                            </div>
+                            {% endfor %}
+                                
+                          
+                
+                        </div>
+                        <Script>
+                            function ingredientsAdded(){
+                                window.alert("All the ingredients in "+"{{recipe.recipe_name}}"+" are now added to your shopping list!")
+                            }
+                        
+                        </Script>
+                                <form action="{% url 'add_shopping_cart' recipe.id %}" method="POST">
+                                    {% csrf_token %} 
+                                    <button type="submit" class="btn btn-success" style="border: none; cursor: pointer; margin; 10px 0px 0px 0px" onclick="ingredientsAdded()" >
+                                        Add to shopping list 
+                                    </button>
+                                </form>
+
+                                <p>
+
+                                </p>
+                                <p>
+                                    
+                                </p>
+                    </div>
+                </div>
+
+{% endif %}
+{% endblock %}
+
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+      <style>
+      .baseWhitespace {
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: 60px;
+        padding: 20px;
+        
+                
+              }
+      .navbar-collapse.in {
+        display: block !important;
+    }
+
+    </style>
+    {% if bool %}
+    <style>
+        .backg {
+          background-color: rgb(56,53,53);
+        }
+        .fontcolor {
+          color: white;
+        }
+    </style>
+    {% endif %}
+
+    
+    
+
+      
+      
+
+    <head>
+        <!--
+        Navbar from: https://www.w3schools.com/bootstrap/bootstrap_navbar.asp
+        -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        -->
+  
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+      <title>RecipyFind</title>
+    </head>
+    <header>
+
+
+      {% if bool%}
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      {% else %}
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      {% endif %}
+
+      <a class="navbar-brand" href="/home"><img src="/static/images/RecipyfindLogo.png" alt="img" style="max-width: 110px; max-height: 110px; padding: 0px 0px 0px 10px"></img></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/createRecipe">Create receipe</a>
+            </li>
+            <li class="nav-item dropdown" style="margin-top: 8px; margin-bottom: 8px;">
+              {% if bool%}
+              <a class="dropdown-toggle" id="navbarDarkDropdownMenuLink" data-toggle="dropdown" aria-expanded="false" 
+              style="color: lightgray;text-decoration: none; cursor: pointer;opacity: 0.8;">Categories</a>
+
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" >
+                <li><a class="dropdown-item" href="/popular">Popular</a></li>
+                  {% for category in allCategories %}
+                    <li><a class="dropdown-item" href="/category/{{category.id}}">{{category.name}}</a></li>
+                  {% endfor %}
+              </ul>
+              {% else %}
+              <a class="dropdown-toggle" id="navbarDarkDropdownMenuLink" data-toggle="dropdown" aria-expanded="false" 
+              style="color:gray;text-decoration: none; cursor: pointer;opacity: 1;">Categories</a>
+              <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink" >
+                <li><a class="dropdown-item" href="/popular">Popular</a></li>
+                  {% for category in allCategories %}
+                    <li><a class="dropdown-item" href="/category/{{category.id}}">{{category.name}}</a></li>
+                  {% endfor %}
+              </ul>
+              {% endif %}
+
+                
+              
+
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/shoppinglist">Shopping list</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/mypage">My page</a>
+            </li>
+          </ul>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
+            <li class="nav-item" >
+              <a class="nav-link" href="/logout" style="float: right;">Logout</a>
+            </li>
+          </ul>
+          {% endif %}
+        </ul>
+      </nav>
+      
+    </header>
+    <body class = "backg fontcolor">
+        <div class="baseWhitespace">
+          {% block content%}
+          {% endblock %}
+        </div> 
+        
+    </body>    
+    
+</html>

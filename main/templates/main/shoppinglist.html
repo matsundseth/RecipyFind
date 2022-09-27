@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+
+
+
+{% block content%}
+
+
+
+<div class="col-12 col-lg-12">
+    <div class="ingredients">
+        <h3>Your Shopping List</h3>
+        <ul class="list-group">
+            {% if bool %}
+                <li class="list-group-item bg-dark" style="color:white"><h4>Ingredients:</h4></li>
+            {%else%}
+                <li class="list-group-item bg-light"><h4>Ingredients:</h4></li>
+            {% endif %}
+            
+                {% for amount in ingredients %}
+                    <form method="post" action = "/shoppinglist/">
+                        {% csrf_token %}
+                        {% if bool %}
+                            <li class="list-group-item bg-dark" style="color:white">
+                                <button type = "submit" name = "amountID" class="btn btn-danger" value = "{{amount.id}}" style="font-size: 18px; 
+                                padding-top: 0%; padding-bottom: 0px; padding-right: 7px;  padding-left: 7px; margin-right:15%;"> X </button>
+                                {{amount.ingredient.ingredient_name}}: {{amount.amount}} {{amount.ingredient.storing_type}}   
+                                <p style="float:right; color: white;">{{amount.recipe}}</p>
+                            </li>
+                        {%else%}
+                            <li class="list-group-item bg-light">
+                                <button type = "submit" name = "amountID" class="btn btn-danger" value = "{{amount.id}}" style="font-size: 18px; 
+                                padding-top: 0%; padding-bottom: 0px; padding-right: 7px;  padding-left: 7px; margin-right:15%"> X </button>
+                                {{amount.ingredient.ingredient_name}}: {{amount.amount}} {{amount.ingredient.storing_type}}
+                                <p style="float:right">{{amount.recipe}}</p>
+                            </li>
+                        {% endif %}
+                    </form>
+                {% endfor %} 
+    </ul>
+    </div>
+</div>
+</div>
+{% endblock  %}

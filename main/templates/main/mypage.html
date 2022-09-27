@@ -1,0 +1,94 @@
+{% extends 'main/base.html' %}
+
+{% block title%}
+        View
+{% endblock %}
+
+
+
+{% block content%}
+<p>Hello {{user.username}}! Here you can view and edit your personal recipies.</p>
+
+<div>
+  <form method= 'POST' action="/mypage/theme/">
+    <div class="form-check form-switch">
+      {% csrf_token %}
+      {% if bool %}
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" onclick="darkmode()" checked>
+      <label class="form-check-label" for="flexSwitchCheckChecked"> Dark Mode</label>
+
+      {% else %}
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="darkmode()">
+      <label class="form-check-label" for="flexSwitchCheckDefault"> Light mode</label>
+      {% endif %}
+    </div>
+  </form>
+
+</div>
+<br>
+  {% if user.is_authenticated %}
+  
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for recipe in user.recipe.all reversed %} 
+    
+    {% if bool %}
+    <div class="col"> 
+      <div class="card text-light bg-dark h-100">
+        <a href="{% url 'recipeView' recipe.id%}" style="text-decoration: none; color: white;" onMouseOver="this.style.color='grey'" onMouseOut="this.style.color='white'"> 
+    
+    {% else %}
+    <div class="col"> 
+      <div class="card h-100">
+        <a href="{% url 'recipeView' recipe.id%}" style="text-decoration: none; color: #000000;" onMouseOver="this.style.color='green'" onMouseOut="this.style.color='#000'"> 
+    {% endif %}
+          <img src="{{recipe.avatar.url}}" class="card-img-top" alt="..." style="object-fit:cover; object-position: right; height: 150px">
+        
+        <div class="card-body" style="height: 150px; overflow:hidden" >
+          <h5 class="card-title">{{recipe.recipe_name}}</h5>
+          <p class="card-text">{{recipe.description}}</p>
+          <div class="container">
+          </a>
+          </div>
+        </div>
+        <div class="btn-holder" color = {{theme.color}}>
+          <form method="post" action = "/mypage/">
+            {% csrf_token %}
+            {% if bool %}
+            <div class="col-md-12 bg-dark text-right" style="padding:5px">
+            {%else%}
+            <div class="col-md-12 bg-light text-right" style="padding:5px">
+            {% endif %}
+              <a class="btn btn-primary" href="{% url 'updateRecipe' recipe.id%}" style="float: left; margin: 10px 0px 10px 0px">Edit</a>
+              <button type = "submit" name = "recipeID" class="btn btn-danger" value = "{{recipe.id}}" style="float: right; margin: 10px 0px 10px 0px"> Delete </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    
+    
+      {% endfor %}
+    </div>
+    </a>
+    <div>
+      <form method = 'POST', action = '/mypage/theme/'>
+        {% csrf_token %}
+        <button type = 'submit' id = "darkswitch" hidden> {{bool}} </button>
+      </form>
+
+    </div>
+    
+
+    <script>
+
+      function darkmode() {
+        document.getElementById('darkswitch').click();
+      }
+    </script>
+  {% else %}
+    <p>Login <a href="/login">here</a></p>
+  {% endif %}
+{% endblock %}
+
+

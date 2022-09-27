@@ -1,0 +1,102 @@
+{% extends 'main/base.html' %}
+
+{% block title%}
+        View
+{% endblock %}
+
+{%block header%}
+  <li class="nav-item active">
+    <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/createRecipe">Create receipe</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/mypage">My page</a>
+  </li>
+{% endblock  %}
+
+{% block content%}
+{% if user.is_authenticated %}
+  <h1>RecipyFind's 10 most popular: </h1>
+  <br>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for i in recipes %}
+  
+      {% if bool %}
+      <a href="{% url 'recipeView' i.id%}" style="text-decoration: none; color: white;" onMouseOver="this.style.color='grey'" onMouseOut="this.style.color='white'"> 
+      <div class="col-"> 
+        <div class="card text-light bg-dark h-100">
+      {% else %}
+      <a href="{% url 'recipeView' i.id%}" style="text-decoration: none; color: #000000;" onMouseOver="this.style.color='green'" onMouseOut="this.style.color='#000'"> 
+        <div class="col-"> 
+          <div class="card h-100">
+      {% endif %}
+          <img src="{{i.avatar.url}}" class="card-img-top" alt="..." style="object-fit:cover; object-position: right; height: 150px">
+          <div class="card-body"  style="height: 160px; overflow:hidden">
+            <h5 class="card-title">{{i.recipe_name}}</h5>
+            {% if i.description|length > 80 %}
+            <p>{{i.description|slice:200}}...</p>
+            {% else  %}
+            <p>{{i.description }}</p>
+            {% endif %}
+          </div>
+          <div color = {{theme.color}}>
+<!--                              Here comes the stars                                    :-->
+
+            <style>
+              .rating {
+              width: 130px;
+              margin: 10px 0px 10px 15px;
+              }
+              .rating__star {
+              color: #dabd18b2;
+              }
+
+            </style>
+
+            <!-- Add icon library -->
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css" integrity="sha384-eLT4eRYPHTmTsFGFAzjcCWX+wHfUInVWNm9YnwpiatljsZOwXtwV2Hh6sHM6zZD9" crossorigin="anonymous">
+            <div class="rating">
+              <i class="rating__star far fa-star {{i.id}}"></i>
+              <i class="rating__star far fa-star {{i.id}}"></i>
+              <i class="rating__star far fa-star {{i.id}}"></i>
+              <i class="rating__star far fa-star {{i.id}}"></i>
+              <i class="rating__star far fa-star {{i.id}}"></i>
+            </div>
+
+            <script>
+              stars = [...document.getElementsByClassName("{{i.id}}")];
+
+              var ratingdata = JSON.parse("{{ratingsJson|escapejs}}");
+
+              meanRating = ratingdata["{{i.id}}"]              
+              function loadRating(){
+                  const starClassActive = "rating__star fas fa-star";
+                  const starClassInactive = "rating__star far fa-star";
+                  const starsLength = stars.length;
+                  let i;
+                  stars.map((star) => {
+                      i = stars.indexOf(star);
+
+                      if (i < meanRating){
+                          star.className=starClassActive;
+                      }else{
+                          star.className=starClassInactive;
+                      }
+                  });
+              }
+              loadRating();
+            </script>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+      </div>
+
+      </a>
+  {% else %}
+    <p>Login <a href="/login">here</a></p>
+  {% endif %}
+{% endblock %}

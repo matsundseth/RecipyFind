@@ -1,0 +1,76 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+{%block header%}
+  <li class="nav-item">
+    <a class="nav-link" href="/home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/createRecipe">Create receipe</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/mypage">My page</a>
+  </li>
+{% endblock  %}
+
+{% block content %}
+  <div style="margin: 0px 20% 30px 20%; padding: 0px 40px 30px 40px; position: center">
+    <h1> {{ rec.recipe_name }}</h1>
+    
+      <form method="post" name = "ingredient_form">
+          {% csrf_token %}
+          {{ form|crispy }}
+      
+          <button class="btn btn-success" type = "submit" name = "formtype" value = "add ingredient to recipe" style="margin: 10px 0px 0px 0px"> + </button>
+          <a href="{% url 'recipeView' rec.id %}">
+            <button type = "button" class="btn btn-success" style="float:right; margin: 10px 0px 0px 0px">Complete</button>
+          </a>
+        </form>
+      
+
+      
+    <br>
+    
+    <ul class="list-group">
+      {% if bool %}
+        <li class="list-group-item bg-dark" style="color:white"><h4>Ingredients:</h4></li>
+      {%else%}
+        <li class="list-group-item bg-light"><h4>Ingredients:</h4></li>
+      {% endif %}
+      
+      {% for amount in amounts %}
+        {% if bool %}
+          <li class="list-group-item bg-dark" style="color:white">{{amount.ingredient.ingredient_name}}: {{amount.amount}} {{amount.ingredient.storing_type}}</li>
+        {%else%}
+          <li class="list-group-item bg-light">{{amount.ingredient.ingredient_name}}: {{amount.amount}} {{amount.ingredient.storing_type}}</li>
+      {% endif %}
+      {% endfor %}
+  </ul>
+
+  
+
+
+    <br><br><br><br>
+    <h4>Add ingredients here:</h4>
+    <div>
+      <form method="post" name = "ingredient_form">
+
+        {% csrf_token %}
+        {{ form2|crispy }}
+  
+        <button type = "submit" name = "formtype" value = "add ingredient to list" class="btn btn-success" style="margin: 10px 0px 0px 0px"> Save ingredient </button>
+      </form>
+
+    </div>
+
+  </div>
+
+</html>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+
+
+
+{% block title%}
+        View
+{% endblock %}
+
+{% block header %}
+  <li class="nav-item">
+    <a class="nav-link" href="/home">Home</a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" href="/createRecipe">Create receipe<span class="sr-only">(current)</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/mypage">My page</a>
+  </li>
+{% endblock %}
+
+{% block content%}
+<div style="margin: 0px 20% 30px 20%; padding: 0px 40px 30px 40px; position: center">
+  {% if user.is_authenticated %} 
+  <div >
+    {% for td in user.recipie.all %}
+    <p><a href="/{{td.id}}">{{td.name}}</a></p>
+    {% endfor %}
+  
+ <div style="width: 80%">
+    <form method="post" action = "" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form|crispy }}
+
+    <button type = "submit" value = "save" class="btn btn-success">Save</button>
+  </form>
+ </div> 
+</div>
+  {% else %}
+    <p>Login <a href="/login">here</a></p>
+  {% endif %}
+{% endblock %}
